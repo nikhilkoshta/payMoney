@@ -7,7 +7,7 @@ export function GetLandingPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/user/")
+        axios.get("https://pay-money-client.vercel.app/api/v1/user/")
             .then(navigate('/signup'))
     }, [navigate]);
 }
