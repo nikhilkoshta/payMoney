@@ -115,6 +115,10 @@ router.put("/", authMiddleware, async (req, res) => {
     })
 })
 
+router.get('/', async (req, res) => {
+    res.redirect('/signup');
+})
+
 router.get("/bulk", async (req, res) => {
     const filter = req.query.filter || "";
 
