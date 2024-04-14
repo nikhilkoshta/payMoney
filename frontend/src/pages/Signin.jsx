@@ -13,7 +13,14 @@ export const Signin = () => {
         <InputBox placeholder="username@gmail.com" label={"Email"} />
         <InputBox placeholder="123456" label={"Password"} />
         <div className="pt-4">
-          <Button label={"Sign in"} />
+          <Button onClick={async () => {
+            const response = await axios.post("https://pay-money.vercel.app/api/v1/user/signin", {
+              username,
+              password
+            });
+            localStorage.setItem("token", response.data.token)
+            navigate("/dashboard")
+          }} label={"Sign in"} />
         </div>
         <BottomWarning label={"Don't have an account?"} buttonText={"Sign up"} to={"/signup"} />
       </div>
