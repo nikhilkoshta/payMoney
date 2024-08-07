@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FaMoneyBillWave, FaLock, FaRocket, FaUser } from 'react-icons/fa';
-import { Button } from '../components/Button';
 
 const HomePage = () => {
   return (
@@ -45,15 +44,15 @@ const HomePage = () => {
       <div className="py-12 bg-gradient-to-b from-gray-800 to-gray-900 text-center">
         <h2 className="text-3xl font-bold">Quick Actions</h2>
         <div className="mt-6 flex justify-center space-x-6">
-          <Button to="/sendmoney" className="flex items-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+          <Link to="/sendmoney" className="flex items-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
             <FaMoneyBillWave className="mr-2" /> Send Money
-          </Button>
-          <Button to="/receivemoney" className="flex items-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          </Link>
+          <Link to="/receivemoney" className="flex items-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             <FaUser className="mr-2" /> Receive Money
-          </Button>
-          <Button to="/transactions" className="flex items-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+          </Link>
+          <Link to="/transactions" className="flex items-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
             <FaLock className="mr-2" /> View Transactions
-          </Button>
+          </Link>
         </div>
       </div>
 
