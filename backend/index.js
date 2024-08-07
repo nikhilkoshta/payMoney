@@ -6,7 +6,7 @@ const rootRouter = require("./routes/index");
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend origin
+    origin: 'https://pay-money-client.vercel.app', // Allow requests from your frontend origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
 }));
