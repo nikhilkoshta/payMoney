@@ -44,13 +44,13 @@ const HomePage = () => {
       <div className="py-12 bg-gradient-to-b from-gray-800 to-gray-900 text-center">
         <h2 className="text-3xl font-bold">Quick Actions</h2>
         <div className="mt-6 flex justify-center space-x-6">
-          <Link to="/sendmoney" className="flex items-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+          <Link className="flex items-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
             <FaMoneyBillWave className="mr-2" /> Send Money
           </Link>
-          <Link to="/receivemoney" className="flex items-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          <Link className="flex items-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             <FaUser className="mr-2" /> Receive Money
           </Link>
-          <Link to="/transactions" className="flex items-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+          <Link className="flex items-center bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
             <FaLock className="mr-2" /> View Transactions
           </Link>
         </div>
