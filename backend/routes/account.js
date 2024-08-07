@@ -18,38 +18,39 @@ router.get("/balance", authMiddleware, async (req, res) => {
 
 router.post("/transfer", authMiddleware, async (req, res) => {
     const session = await mongoose.startSession();
-
     session.startTransaction();
-    const { amount, to } = req.body;
 
-    // Fetch the accounts within the transaction
-    const account = await Account.findOne({ userId: req.userId }).session(session);
+    const { amount } = req.body;  // Only require amount
 
-    if (!account || account.balance < amount) {
-        await session.abortTransaction();
-        return res.status(400).json({
-            message: "Insufficient balance"
+    try {
+        // Fetch the sender's account within the transaction
+        const account = await Account.findOne({ userId: req.userId }).session(session);
+
+        if (!account || account.balance < amount) {
+            await session.abortTransaction();
+            return res.status(400).json({
+                message: "Insufficient balance"
+            });
+        }
+
+        // Perform the transfer by deducting amount from the sender's account
+        await Account.updateOne({ userId: req.userId }, { $inc: { balance: -amount } }).session(session);
+
+        // Commit the transaction
+        await session.commitTransaction();
+        res.json({
+            message: "Transfer successful"
         });
-    }
-
-    const toAccount = await Account.findOne({ userId: to }).session(session);
-
-    if (!toAccount) {
+    } catch (error) {
         await session.abortTransaction();
-        return res.status(400).json({
-            message: "Invalid account"
+        console.error("Transfer failed:", error);
+        res.status(500).json({
+            message: "Transfer failed due to an internal error"
         });
+    } finally {
+        session.endSession();
     }
-
-    // Perform the transfer
-    await Account.updateOne({ userId: req.userId }, { $inc: { balance: -amount } }).session(session);
-    await Account.updateOne({ userId: to }, { $inc: { balance: amount } }).session(session);
-
-    // Commit the transaction
-    await session.commitTransaction();
-    res.json({
-        message: "Transfer successful"
-    });
 });
+
 
 module.exports = router;

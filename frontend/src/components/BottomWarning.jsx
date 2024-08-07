@@ -1,13 +1,18 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-export function BottomWarning({label, buttonText, to}) {
-    return <div className="py-2 text-sm flex justify-center">
-      <div>
-        {label}
-      </div>
-      <Link className="pointer underline pl-1 cursor-pointer" to={to}>
-        {buttonText}
-      </Link>
-    </div>
+export const BottomWarning = ({ label, buttonText, to }) => {
+    const navigate = useNavigate();
+
+    return (
+        <div className="mt-4">
+            <p className="text-sm text-center text-[#293241]">
+                {label}{" "}
+                <span
+                    onClick={() => navigate(to)}
+                    className="text-[#ee6c4d] cursor-pointer">
+                    {buttonText}
+                </span>
+            </p>
+        </div>
+    );
 }
-  

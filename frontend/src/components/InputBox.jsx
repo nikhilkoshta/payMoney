@@ -1,9 +1,16 @@
-
-export function InputBox({label, placeholder, onChange}) {
-    return <div>
-      <div className="text-sm font-medium text-left py-2">
-        {label}
+export const InputBox = ({ onChange, placeholder, label }) => {
+  return (
+      <div className="space-y-2 my-2">
+          <label className="text-sm font-medium leading-none text-[#000000]" htmlFor={label}>
+              {label}
+          </label>
+          <input
+              onChange={onChange}
+              type="text"
+              className="flex h-10 w-full rounded-md border border-input bg-[#cff4ff] px-3 py-2 text-sm"
+              id={label}
+              placeholder={placeholder}
+          />
       </div>
-      <input onChange={onChange} placeholder={placeholder} className="w-full px-2 py-1 border rounded border-slate-200" />
-    </div>
+  );
 }
