@@ -25,7 +25,7 @@ export const Signin = () => {
         }} placeholder="123456" label={"Password"} />
         <div className="pt-4">
           <Button onClick={async () => {
-            const response = await axios.post("https://pay-money-server.vercel.app/api/v1/user/signin", {
+            const response = await axios.post("https://pay-money.vercel.app/api/v1/user/signin", {
               username,
               password
             });
