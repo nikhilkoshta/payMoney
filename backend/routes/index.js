@@ -5,6 +5,8 @@ const accountRouter = require('./account');
 
 const router = express.Router();
 
+app.use(cors());
+
 router.use('/user', userRouter);
 router.use('/account', accountRouter);
 
