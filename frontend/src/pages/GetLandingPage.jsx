@@ -6,7 +6,7 @@ export function GetLandingPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("https://pay-money-client.vercel.app/api/v1/user/")
+        axios.get("http://localhost:3000/api/v1/user/")
             .then(() => navigate('/signup'))
             .catch(error => console.error("Error in landing page:", error));
     }, [navigate]);
