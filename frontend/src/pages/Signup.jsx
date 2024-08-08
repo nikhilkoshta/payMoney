@@ -25,7 +25,7 @@ export const Signup = () => {
                 <InputBox onChange={e => setPassword(e.target.value)} placeholder="123456" label={"Password"} />
                 <div className="pt-4">
                     <Button onClick={async () => {
-                        const response = await axios.post("https://pay-money-74mjboco0-nikhil-koshta-projects.vercel.app/api/v1/user/signup", {
+                        const response = await axios.post("https://pay-money.vercel.app/api/v1/user/signup", {
                             firstName,
                             lastName,
                             username,
