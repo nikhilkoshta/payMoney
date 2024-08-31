@@ -97,11 +97,11 @@ const HomePage = () => {
           className="mt-6 max-w-2xl mx-auto"
         >
           <div className="bg-gray-800 p-6 rounded shadow-md">
-            <p className="text-gray-300">"PayMoney has made my life so much easier. Transferring money is now just a few taps away!"</p>
+            <p className="text-gray-300">&quot;PayMoney has made my life so much easier. Transferring money is now just a few taps away!&quot;</p>
             <h3 className="mt-4 font-bold text-white">- James Anderson</h3>
           </div>
           <div className="bg-gray-800 p-6 rounded shadow-md">
-            <p className="text-gray-300">"I love the security features of PayMoney. I feel safe making transactions anytime, anywhere."</p>
+            <p className="text-gray-300">&quot;I love the security features of PayMoney. I feel safe making transactions anytime, anywhere.&quot;</p>
             <h3 className="mt-4 font-bold text-white">- Chris Hemsworth</h3>
           </div>
         </Carousel>
