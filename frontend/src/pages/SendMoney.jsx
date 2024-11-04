@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_BASE_URL } from '../../config';
 
 export const SendMoney = () => {
     const [amount, setAmount] = useState('');
@@ -9,7 +10,7 @@ export const SendMoney = () => {
     const handleTransfer = async () => {
         try {
             const response = await axios.post(
-                "/api/v1/account/transfer",
+                `${API_BASE_URL}/api/v1/account/transfer`,
                 { amount: parseFloat(amount) },
                 {
                     headers: {
