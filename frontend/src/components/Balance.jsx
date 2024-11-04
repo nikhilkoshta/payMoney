@@ -9,7 +9,7 @@ export const Balance = () => {
     const fetchBalance = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("https://pay-money.vercel.app/api/v1/account/balance", {
+        const response = await axios.get("/api/v1/account/balance", {
           headers: {
             Authorization: `Bearer ${token}`
           }

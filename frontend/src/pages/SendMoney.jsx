@@ -9,7 +9,7 @@ export const SendMoney = () => {
     const handleTransfer = async () => {
         try {
             const response = await axios.post(
-                "https://pay-money.vercel.app/api/v1/account/transfer",
+                "/api/v1/account/transfer",
                 { amount: parseFloat(amount) },
                 {
                     headers: {
