@@ -1,12 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  server: {
+export default defineConfig(({ mode }) => ({
+  server: mode === 'development' ? {
     proxy: {
-      "/api/v1": "https://pay-money.vercel.app"
+      "/api": "http://localhost:3000",
     },
-  },
+  } : {},
   plugins: [react()],
-})
+}));
